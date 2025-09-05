@@ -49,6 +49,7 @@ header h1 {
   text-align: center;
   display: flex;
   align-content: center;
+  margin-bottom: 1rem;
 }
 
 header h1 svg {
