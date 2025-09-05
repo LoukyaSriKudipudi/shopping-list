@@ -21,7 +21,7 @@ async function getWeather(lat, lon) {
     `https://api.weatherapi.com/v1/current.json?key=e5790c66878544a5a0a132636251408&q=${lat},${lon}`
   );
   const data = await res.json();
-
+  console.log(data);
   function renderWeather() {
     const timeNow = getTime();
     weather.innerHTML = `
@@ -48,6 +48,7 @@ async function getWeather(lat, lon) {
 async function getIp() {
   const res = await fetch('https://ipwhois.app/json/');
   const data = await res.json();
+  console.log(data);
   getWeather(data.latitude, data.longitude);
 }
 
