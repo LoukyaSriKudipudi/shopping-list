@@ -72,6 +72,7 @@ function renderItems(storedItems) {
 // Add item
 function addItem(item) {
   const storedItems = JSON.parse(localStorage.getItem('items')) || [];
+  
   if (storedItems.some((obj) => obj.text === item)) {
     alert('Item already added');
   } else {
