@@ -24,6 +24,11 @@ header h1 {
   color: #748ffc;
 }
 
+h1,
+h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
 #titleTime {
   display: flex;
   flex-direction: row;
