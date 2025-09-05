@@ -1,0 +1,257 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'TASA Explorer', sans-serif;
+  max-width: 750px;
+  width: 90vw;
+  margin: 2rem auto;
+  background-color: #f9f9f9;
+  color: #1a1a1a;
+}
+
+/* Header */
+header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #748ffc;
+}
+
+#titleTime {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#time {
+  color: #343a40;
+  padding: 0.5rem 1rem;
+  background-color: #dee2e6;
+  border-radius: 0.5rem;
+}
+header h1 svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: #748ffc;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+form input[type='text'] {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.2s ease;
+  background-color: #ffffff;
+}
+
+form input[type='text']:focus {
+  outline: none;
+  border-color: #748ffc;
+  background-color: #fff;
+}
+
+#search {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+}
+
+/* HR */
+hr {
+  margin: 1rem auto;
+  border: 0;
+  border-top: 1px solid #cbd5e1;
+}
+
+/* Search container */
+#searchContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#searchContainer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 1px solid #3a3a3a;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.2s;
+  color: #3a3a3a;
+}
+
+#searchContainer button svg {
+  width: 16px;
+  height: 16px;
+}
+
+#searchContainer button:hover {
+  background: #748ffc;
+  color: #ffffff;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+}
+
+.search-container input {
+  width: 100%;
+  padding-left: 2rem;
+}
+
+.search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #748ffc;
+  pointer-events: none;
+}
+
+/* List */
+ul {
+  margin-top: 1rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+ul li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #cbd5e1;
+  transition: background 0.2s ease;
+}
+
+ul li:hover {
+  background: #eaf4fc;
+}
+
+/* Icon + text wrapper */
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.item-icon {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-icon svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  color: #748ffc;
+}
+
+.item-text {
+  flex: 1;
+  text-align: left;
+  font-size: 1rem;
+  word-break: break-word;
+  color: #1a1a1a;
+}
+
+.strikeItem {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Delete button */
+.itemDeleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #f76707;
+  transition: 0.2s;
+}
+
+.itemDeleteButton:hover {
+  color: #ff4b4b;
+}
+
+.itemDeleteButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+ul li:focus-within {
+  border-color: transparent;
+  outline: none;
+}
+
+/* Editable span */
+.item-text:focus {
+  display: inline-block;
+  outline: none;
+  border: none;
+  background: #eaf4fc;
+  padding: 0 0.2rem;
+  border-radius: 0.3rem;
+  caret-color: #3a7ca5;
+}
+
+ul li:has(.item-text:focus) {
+  border-color: transparent;
+}
+
+/* Clear all button */
+#clearAll {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #748ffc;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#clearAll:hover {
+  background: #f76707;
+}
+
+/* Headings inside main */
+main h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #748ffc;
+}
