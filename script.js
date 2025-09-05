@@ -72,12 +72,23 @@ function renderItems(storedItems) {
 // Add item
 function addItem(item) {
   const storedItems = JSON.parse(localStorage.getItem('items')) || [];
-  
+
+  if (!item.trim()) {
+    alert('Please enter a valid item');
+    return;
+  }
+
   if (storedItems.some((obj) => obj.text === item)) {
     alert('Item already added');
-  } else {
-    storedItems.unshift({ text: item, done: false });
+    return;
   }
+
+  if (item.length > 50) {
+    alert('Item is too long (max 50 characters)');
+    return;
+  }
+
+  storedItems.unshift({ text: item, done: false });
 
   localStorage.setItem('items', JSON.stringify(storedItems));
   renderItems(storedItems);
