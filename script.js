@@ -2,17 +2,56 @@ const form = document.querySelector('form');
 const itemsContainer = document.querySelector('#itemsContainer');
 const clearAll = document.querySelector('#clearAll');
 const search = document.querySelector('#search');
-const time = document.getElementById('time');
+const weather = document.getElementById('weather');
 
+// format time
 function getTime() {
   const now = new Date();
-  let dateTime = now.toLocaleString('en-IN');
-  dateTime = dateTime.replace(/\b(am|pm)\b/gi, '');
-  time.textContent = dateTime;
+  return now.toLocaleString('default', {
+    weekday: 'short',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
 }
 
-setInterval(getTime, 1000);
-getTime();
+// fetch weather
+async function getWeather(lat, lon) {
+  const res = await fetch(
+    `https://api.weatherapi.com/v1/current.json?key=e5790c66878544a5a0a132636251408&q=${lat},${lon}`
+  );
+  const data = await res.json();
+
+  function renderWeather() {
+    const timeNow = getTime();
+    weather.innerHTML = `
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 weatherIcon" width="16px" style="margin-right: 0.5rem">
+        <path d="M1 12.5A4.5 4.5 0 0 0 5.5 17H15a4 4 0 0 0 1.866-7.539 3.504 3.504 0 0 0-4.504-4.272A4.5 4.5 0 0 0 4.06 8.235 4.502 4.502 0 0 0 1 12.5Z" />
+      </svg> 
+      Temp. ${data.current.temp_c}°C, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5" width="16px" style="margin-right: 0.5rem; margin-left: 0.5rem">
+  <path fill-rule="evenodd" d="M12.577 4.878a.75.75 0 0 1 .919-.53l4.78 1.281a.75.75 0 0 1 .531.919l-1.281 4.78a.75.75 0 0 1-1.449-.387l.81-3.022a19.407 19.407 0 0 0-5.594 5.203.75.75 0 0 1-1.139.093L7 10.06l-4.72 4.72a.75.75 0 0 1-1.06-1.061l5.25-5.25a.75.75 0 0 1 1.06 0l3.074 3.073a20.923 20.923 0 0 1 5.545-4.931l-3.042-.815a.75.75 0 0 1-.53-.919Z" clip-rule="evenodd" />
+</svg>
+
+ Cond. ${data.current.condition.text}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5 timeIcon" width="16px" style="margin-right: 0.5rem; margin-left: 0.5rem">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm.75-13a.75.75 0 0 0-1.5 0v5c0 .414.336.75.75.75h4a.75.75 0 0 0 0-1.5h-3.25V5Z" clip-rule="evenodd"/>
+      </svg> 
+      ${timeNow}
+    `;
+  }
+
+  renderWeather();
+  setInterval(renderWeather, 60000); // update every 1 min
+}
+
+// get location by IP
+async function getIp() {
+  const res = await fetch('https://ipwhois.app/json/');
+  const data = await res.json();
+  getWeather(data.latitude, data.longitude);
+}
+
+getIp();
 
 // Render function
 function renderItems(storedItems) {
