@@ -21,7 +21,7 @@ header h1 {
   gap: 0.5rem;
   font-size: 1.75rem;
   font-weight: 600;
-  color: #748ffc;
+  color: #7048e8;
 }
 
 h1,
@@ -61,7 +61,7 @@ header h1 svg {
   width: 28px;
   height: 28px;
   flex-shrink: 0;
-  color: #748ffc;
+  color: #7048e8;
 }
 
 /* Form */
@@ -83,7 +83,7 @@ form input[type='text'] {
 
 form input[type='text']:focus {
   outline: none;
-  border-color: #748ffc;
+  border-color: #7048e8;
   background-color: #fff;
 }
 
@@ -99,7 +99,7 @@ form input[type='number'] {
 
 form input[type='number']:focus {
   outline: none;
-  border-color: #748ffc;
+  border-color: #7048e8;
   background-color: #fff;
 }
 
@@ -140,7 +140,7 @@ hr {
 }
 
 #searchContainer button:hover {
-  background: #748ffc;
+  background: #7048e8;
   color: #ffffff;
 }
 
@@ -161,7 +161,7 @@ hr {
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  color: #748ffc;
+  color: #7048e8;
   pointer-events: none;
 }
 
@@ -208,7 +208,7 @@ ul li:hover {
   display: block;
   width: 16px;
   height: 16px;
-  color: #748ffc;
+  color: #7048e8;
 }
 
 .item-text {
@@ -272,7 +272,7 @@ ul li:has(.item-text:focus) {
   padding: 0.5rem;
   border: none;
   border-radius: 0.5rem;
-  background: #748ffc;
+  background: #7048e8;
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
@@ -288,7 +288,7 @@ main h2 {
   margin: 1rem 0 0.5rem;
   font-size: 1.2rem;
   font-weight: 500;
-  color: #748ffc;
+  color: #7048e8;
 }
 
 .hint {
